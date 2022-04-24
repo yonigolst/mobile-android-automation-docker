@@ -32,7 +32,7 @@ yes | sdkmanager "platform-tools" "platforms;android-30" "emulator"
 yes | sdkmanager --licenses
 
 # Downloading system images
-yes | sdkmanager --install "system-images;android-29;default;arm64-v8a"
+yes | sdkmanager --install "system-images;android-27;default;arm64-v8a"
 
 # Creating virtual devices
 echo "no" | avdmanager --verbose create avd --force --name "api27arm" --package "system-images;android-27;default;arm64-v8a" --tag "default"
@@ -47,5 +47,5 @@ npm install -g appium --unsafe-perm=true --allow-root
 
 
 # emulator -no-window -writable-system -avd  &
-#docker run --platform linux/x86_64 -it ubuntu /bin/bash
-docker run -it ubuntu /bin/bash
+# docker run --platform linux/x86_64 -it ubuntu /bin/bash
+# docker run -it ubuntu /bin/bash
