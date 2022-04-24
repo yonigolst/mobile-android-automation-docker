@@ -28,14 +28,14 @@ mkdir -p $ANDROID_SDK_ROOT/cmdline-tools
 mv cmdline-tools $ANDROID_SDK_ROOT/cmdline-tools/tools
 
 # Intalling SDK tools and platforms
-yes | sdkmanager "platform-tools" "platforms;android-30"
+yes | sdkmanager "platform-tools" "platforms;android-30" "emulator"
 yes | sdkmanager --licenses
 
 # Downloading system images
-yes | sdkmanager --install "system-images;android-30;default;x86_64"
+yes | sdkmanager --install "system-images;android-29;default;arm64-v8a"
 
 # Creating virtual devices
-echo "no" | avdmanager --verbose create avd --force --name "generic_10" --package "system-images;android-30;default;x86_64" --tag "default"
+echo "no" | avdmanager --verbose create avd --force --name "api27arm" --package "system-images;android-27;default;arm64-v8a" --tag "default"
 
 
 # Install Node.js 14.x
@@ -46,5 +46,6 @@ apt-get install -y nodejs
 npm install -g appium --unsafe-perm=true --allow-root
 
 
-# emulator @generic_10 &
+# emulator -no-window -writable-system -avd  &
 #docker run --platform linux/x86_64 -it ubuntu /bin/bash
+docker run -it ubuntu /bin/bash
